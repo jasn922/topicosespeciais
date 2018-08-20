@@ -1,0 +1,35 @@
+git --version = verifica a versão do git
+ 
+
+git init = inicial o repositorio 
+
+
+git config --global user.name "Joaquim Augusto" = cria um nome usuario git 
+
+
+git config --global user.email "j.augustonetto@hotmail.com" = cria um email git 
+
+
+git status = verifica tudo que nao foi salvo
+
+
+git add . = envia o arquivo pra area de transferencia
+
+
+git commit -m "Mensagem" = dizer uma mensagem para identificar o commit
+
+
+git log = mostra todos os logs dos commits realizados
+
+
+git remote add origin LINK DO REPOSITORIO https://github.com/jasn922/topicosespeciais.git = vincula a pasta local ao repositorio do git
+
+
+git push -u origin master = fazer commit pela primeira vez
+
+
+
+
+
+
+
