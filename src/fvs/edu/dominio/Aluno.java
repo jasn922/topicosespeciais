@@ -7,84 +7,74 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Aluno implements Serializable{
+public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private Integer nome;
-	private Integer cpf;
-	private Integer rg;
+	private String nome;
+	private String cpf;
+	private String rg;
 	private Integer matricula;
-	
-	
-	
-	public Aluno(Integer id, Integer nome, Integer cpf, Integer rg, Integer matricula) {
+
+	public Aluno() {
+
+	}
+
+	public Aluno(Integer id, String string, String string2, String string3, Integer matricula) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.rg = rg;
+		this.nome = string;
+		this.cpf = string2;
+		this.rg = string3;
 		this.matricula = matricula;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "Aluno [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", matricula=" + matricula + "]";
 	}
-	
 
 	public Integer getId() {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
-	public Integer getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-
-	public void setNome(Integer nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
-	public Integer getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-
-	public void setCpf(Integer cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-
-	public Integer getRg() {
+	public String getRg() {
 		return rg;
 	}
 
-
-	public void setRg(Integer rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
-
 
 	public Integer getMatricula() {
 		return matricula;
 	}
 
-
 	public void setMatricula(Integer matricula) {
 		this.matricula = matricula;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -97,6 +87,7 @@ public class Aluno implements Serializable{
 		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -133,7 +124,5 @@ public class Aluno implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }
