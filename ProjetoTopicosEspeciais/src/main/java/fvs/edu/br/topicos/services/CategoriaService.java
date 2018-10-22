@@ -10,12 +10,14 @@ import fvs.edu.br.topicos.repositories.CategoriaRepository;
 
 @Service
 public class CategoriaService {
+	
 	@Autowired
 	private CategoriaRepository repositorio;
 	
-	public  Categoria buscar(Integer id) {
+	public Categoria buscar(Integer id) {
 		Optional<Categoria> obj = repositorio.findById(id);
-		return obj.orElse(null);
 		
+		return obj.orElse(null);
 	}
+
 }
