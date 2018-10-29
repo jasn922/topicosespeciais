@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import fvs.edu.br.topicos.domain.Cidade;
 
 @Repository
-public interface CidadeRepository 
-extends JpaRepository<Cidade, Integer>{
-
+public interface CidadeRepository extends JpaRepository <Cidade, Integer>{
+	
 }

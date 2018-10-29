@@ -1,39 +1,44 @@
 package fvs.edu.br.topicos.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
-public class Categoria implements Serializable  {
-	private static final long serialVersionUID = 1L;
+import fvs.edu.br.topicos.enums.EstadoPagamento;
 
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Pagamento implements Serializable  {
+	private static final long serialVersionUID = 1L;
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
+	
+	private Integer estado;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy="categorias")
-	List<Produto> produtos = new ArrayList<>();
+	@OneToOne
+	@JoinColumn(name="pedido_id")
+	@MapsId
+	private Pedido pedido;
 	
-	
-	public Categoria () {
+	public Pagamento() {
 		
 	}
 
-	public Categoria(Integer id, String nome) {
+	public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.estado = estado.getCod();
+		this.pedido = pedido;
 	}
 
 	public Integer getId() {
@@ -44,21 +49,20 @@ public class Categoria implements Serializable  {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public Integer getEstado() {
+		return estado;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	
-	public List<Produto> getProdutos() {
-		return produtos;
+	public void setEstado(Integer estado) {
+		this.estado = estado;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 	@Override
@@ -77,7 +81,7 @@ public class Categoria implements Serializable  {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		Pagamento other = (Pagamento) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
