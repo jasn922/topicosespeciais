@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>ProjetoTopicosEspeciais</name>
-	<description>Projeto desemvolvido de topicos especias na fvs</description>
+	<description>Projeto desenvolvido na disciplina de topicos especiais fvs</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -26,8 +26,6 @@
 	</properties>
 
 	<dependencies>
-	
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -54,6 +52,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+
 
 	</dependencies>
 

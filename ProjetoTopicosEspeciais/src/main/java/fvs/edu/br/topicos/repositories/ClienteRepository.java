@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import fvs.edu.br.topicos.domain.Cliente;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+public interface ClienteRepository 
+extends JpaRepository<Cliente, Integer>{
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import fvs.edu.br.topicos.domain.Estado;
 
 @Repository
-public interface EstadoRepository extends JpaRepository <Estado, Integer>{
-	
+public interface EstadoRepository 
+extends JpaRepository<Estado, Integer>{
+
 }

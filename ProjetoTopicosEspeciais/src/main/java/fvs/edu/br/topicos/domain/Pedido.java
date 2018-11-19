@@ -18,40 +18,41 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Pedido implements Serializable {
+public class Pedido implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
 	private Date instante;
-
+	
 	@ManyToOne
-	@JoinColumn(name = "endereco_de_entrega_id")
-	private Endereco endereco;
-
-	@ManyToOne
-	@JoinColumn(name = "cliente_id")
+	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
-
-	@OneToMany(mappedBy = "id.pedido")
-	private Set<ItemPedido> itens = new HashSet<>();
-
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
+	
+	@ManyToOne
+	@JoinColumn(name="endereco_de_entrega_id")
+	private Endereco enderecoEntrega;
+	
+	
+	@OneToMany(mappedBy="id.pedido")
+	private Set<ItemPedido> itens = new HashSet<>(); 
+	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
 
 	public Pedido() {
-
+		
 	}
-
-	public Pedido(Integer id, Date instante, Endereco endereco, Cliente cliente) {
+	
+	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoEntrega) {
 		super();
 		this.id = id;
 		this.instante = instante;
-		this.endereco = endereco;
 		this.cliente = cliente;
+		this.enderecoEntrega = enderecoEntrega;
 	}
 
 	public Integer getId() {
@@ -70,20 +71,20 @@ public class Pedido implements Serializable {
 		this.instante = instante;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
 	public Cliente getCliente() {
 		return cliente;
 	}
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public Endereco getEnderecoEntrega() {
+		return enderecoEntrega;
+	}
+
+	public void setEnderecoEntrega(Endereco enderecoEntrega) {
+		this.enderecoEntrega = enderecoEntrega;
 	}
 
 	public Set<ItemPedido> getItens() {
@@ -126,5 +127,22 @@ public class Pedido implements Serializable {
 			return false;
 		return true;
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

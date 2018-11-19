@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import fvs.edu.br.topicos.domain.Pagamento;
 
 @Repository
-public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
+public interface PagamentoRepository 
+extends JpaRepository<Pagamento, Integer>{
 
 }
